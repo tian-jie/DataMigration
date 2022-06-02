@@ -1,8 +1,0 @@
-/Users/tianjie/Projects/testdbspeed/Import/bin/Release/net5.0/publish/Import
-/Users/tianjie/Projects/testdbspeed/Import/bin/Release/net5.0/publish/Import.dll
-/Users/tianjie/Projects/testdbspeed/Import/bin/Release/net5.0/publish/Import.deps.json
-/Users/tianjie/Projects/testdbspeed/Import/bin/Release/net5.0/publish/Import.runtimeconfig.json
-/Users/tianjie/Projects/testdbspeed/Import/bin/Release/net5.0/publish/Import.pdb
-/Users/tianjie/Projects/testdbspeed/Import/bin/Release/net5.0/publish/AWSSDK.Core.dll
-/Users/tianjie/Projects/testdbspeed/Import/bin/Release/net5.0/publish/AWSSDK.S3.dll
-/Users/tianjie/Projects/testdbspeed/Import/bin/Release/net5.0/publish/Newtonsoft.Json.dll

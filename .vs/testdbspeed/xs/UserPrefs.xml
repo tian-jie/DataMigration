@@ -1,0 +1,38 @@
+﻿<Properties StartupConfiguration="{395281CC-060E-4EEF-B6F1-AB08C2A8125F}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Import/appsettings.json">
+    <Files>
+      <File FileName="testdbspeed/Tools.cs" Line="46" Column="12" />
+      <File FileName="BgmBehavior.cs" />
+      <File FileName="testdbspeed/Program.cs" />
+      <File FileName="Import/Program.cs" />
+      <File FileName="Models/Class1.cs" />
+      <File FileName="Import/Dockerfile" />
+      <File FileName="Import/appsettings.json" Line="12" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="testdbspeed" expanded="True">
+            <Node name="docker-compose" expanded="True" />
+            <Node name="Import" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+            </Node>
+            <Node name="Models" expanded="True">
+              <Node name="Lilly_DXY_Data_BgmBehavior.cs" selected="True" />
+            </Node>
+            <Node name="testdbspeed" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.DataMigration-Export PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.docker-compose PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.DataMigration-Import PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "ExportExecutor": {
+      "commandName": "Executable",
+      "executablePath": "G:\\workspaces\\DataMigration\\ExportExecutor.exe",
+      "workingDirectory": "G:\\workspaces\\DataMigration\\"
+    }
+  }
+}

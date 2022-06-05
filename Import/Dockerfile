@@ -5,10 +5,10 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["Import.csproj", "Import/"]
-RUN dotnet restore "Import/Import.csproj"
+COPY ["Import.csproj", "."]
+RUN dotnet restore "./Import.csproj"
 COPY . .
-WORKDIR "/src/Import"
+WORKDIR "/src/."
 RUN dotnet build "Import.csproj" -c Release -o /app/build
 
 FROM build AS publish

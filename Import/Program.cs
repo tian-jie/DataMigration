@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Amazon.S3;
+using Amazon.S3.Model;
+using Amazon.S3.Transfer;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using Amazon.S3;
-using Amazon.S3.Model;
+using System.Threading.Tasks;
 using testdbspeed;
 
 namespace Import
@@ -13,40 +15,54 @@ namespace Import
         {
             Console.WriteLine("Hello World!");
 
+            var task = Import("AKIA6C2GIRPYF3UOMZHG", "4ZfqesRbGIqCusIBowcE1TCxNQELx5Ald3ZxiTw7", Amazon.RegionEndpoint.CNNorthWest1, "lly-nw-com-lccp-d-s3-pri-01", "datamigration/Lilly_DXY_Data_BgmBehavior.json");
+            task.Wait();
+        }
+
+        public static async Task Import(string ak, string sk, Amazon.RegionEndpoint region, string bucketName, string key)
+        {
             // TODO: 从S3上拉文件下来
 
             AmazonS3Config s3Config = new AmazonS3Config();
-            var s3Client = new AmazonS3Client("AKIA6C2GIRPYF3UOMZHG", "4ZfqesRbGIqCusIBowcE1TCxNQELx5Ald3ZxiTw7", Amazon.RegionEndpoint.CNNorthWest1);
+            var s3Client = new AmazonS3Client(ak, sk, region);
 
-            Amazon.S3.Model.GetObjectRequest request = new Amazon.S3.Model.GetObjectRequest
+            TransferUtility fileTransferUtility = new TransferUtility(s3Client);
+
+            GetObjectRequest request = new GetObjectRequest
             {
-                BucketName = "lly-nw-com-lccp-d-s3-pri-01",
-                Key = "Lilly_DXY_Data_BgmBehavior.json",
-                //Key = "54b8669f-e581-48d3-be87-011ac8d60712"
+                BucketName = bucketName,
+                Key = key
             };
 
             System.Diagnostics.Stopwatch watch = new System.Diagnostics.Stopwatch();
             watch.Restart();
 
-            string json = "";
-            using (GetObjectResponse response = s3Client.GetObjectAsync(request).Result)
-            {
-                using (Stream responseStream = response.ResponseStream)
-                {
-                    using (StreamReader reader = new StreamReader(responseStream))
-                    {
-                        string title = response.Metadata["x-amz-meta-title"];
-                        json = reader.ReadToEnd();
-                    }
-                }
-            }
+            await fileTransferUtility.DownloadAsync("files/" + key, bucketName, key);
+
+
+            //using (GetObjectResponse response = s3Client.GetObjectAsync(request).Result)
+            //{
+            //    using (Stream responseStream = response.ResponseStream)
+            //    {
+            //        using (StreamReader reader = new StreamReader(responseStream))
+            //        {
+            //            string title = response.Metadata["x-amz-meta-title"];
+            //            json = reader.ReadToEnd();
+            //        }
+            //    }
+            //}
             watch.Stop();
-            Console.WriteLine(watch.ElapsedMilliseconds / 1000.0);
+            Console.WriteLine("download file to local foler: ", watch.ElapsedMilliseconds / 1000.0);
 
             watch.Restart();
 
             // TODO: 读取json文件
-            var result = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Lilly_DXY_Data_BgmBehavior>>(json);
+            List<Lilly_DXY_Data_BgmBehavior> result;
+            using (StreamReader sr = new StreamReader("files/" + key))
+            {
+                string json = sr.ReadToEnd();
+                result = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Lilly_DXY_Data_BgmBehavior>>(json);
+            }
             watch.Stop();
             Console.WriteLine(watch.ElapsedMilliseconds / 1000.0);
             Console.WriteLine($"record count: {result.Count}");

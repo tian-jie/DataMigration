@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -28,11 +28,7 @@ namespace testdbspeed
             // TODO: 尝试执行一个外面写的代码段。
             List<Task> tasks = new List<Task>();
             //tasks.Add(Export<Lilly_DXY_Data_Cards>(ak, sk, region, bucketName));
-            tasks.Add(Export<Lilly_DXY_Data_Cards>(ak, sk, region, bucketName));
-            tasks.Add(Export<PatientInfo>(ak, sk, region, bucketName));
-            tasks.Add(Export<Log>(ak, sk, region, bucketName));
-            tasks.Add(Export<ApiResult>(ak, sk, region, bucketName));
-
+            //###tableNames###
 
             Task.WaitAll(tasks.ToArray());
 
@@ -80,7 +76,7 @@ namespace testdbspeed
                 //}
                 //catch
                 {
-                    using(MemoryStream ms = new MemoryStream())
+                    using (MemoryStream ms = new MemoryStream())
                     {
                         var utf8 = Encoding.UTF8;
                         byte[] utfBytes = utf8.GetBytes(json);
@@ -93,7 +89,8 @@ namespace testdbspeed
                 watch.Stop();
                 Console.WriteLine($"Exporting {tableName} finished, time spent: {watch.ElapsedMilliseconds / 1000.0} s");
 
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine($"Error Occurred: {ex.Message}");
             }

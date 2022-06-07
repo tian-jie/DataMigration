@@ -1,8 +1,0 @@
-version: '3.4'
-
-services:
-  import:
-    image: ${DOCKER_REGISTRY-}import
-    build:
-      context: .
-      dockerfile: Import/Dockerfile

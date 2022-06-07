@@ -29,7 +29,7 @@ namespace Infrastructure.Core
         /// <summary>
         /// 获取或设置 版本控制标识，用于处理并发
         /// </summary>
-        public byte[] Timestamp { get; set; }
+        //public byte[] Timestamp { get; set; }
 
         #endregion
 

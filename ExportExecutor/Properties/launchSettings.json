@@ -4,6 +4,9 @@
       "commandName": "Executable",
       "executablePath": "G:\\workspaces\\DataMigration\\ExportExecutor.exe",
       "workingDirectory": "G:\\workspaces\\DataMigration\\"
+    },
+    "Docker": {
+      "commandName": "Docker"
     }
   }
 }

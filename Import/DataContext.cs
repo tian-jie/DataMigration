@@ -24,6 +24,8 @@ namespace Import
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.HasDefaultSchema("dbo");
+            modelBuilder.UseIdentityColumns();
             //modelBuilder.Entity<Lilly_DXY_Data_Cards>(entity =>
             //{
             //    entity.ToTable("Lilly_DXY_Data_Cards");

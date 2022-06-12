@@ -100,6 +100,7 @@ namespace testdbspeed
 
                     var ss = new SqlSugar.SqlSugarClient(connConfig);
 
+
                     // 每100万一个包
                     var pageSize = int.Parse(ConfigurationManager.AppSettings["exportPageSize"]);
 

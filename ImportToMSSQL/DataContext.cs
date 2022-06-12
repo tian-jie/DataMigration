@@ -1,6 +1,7 @@
 ﻿using Innocellence.DXYDataTransfer.Models;
 using InnoCellence.Lccp.Data.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -10,14 +11,13 @@ using System.Threading.Tasks;
 
 namespace Import
 {
-    public class PostgreSQLContext : DbContext
+    public class MsSqlContext : DbContext
     {
-        string _schemaName = "dbo";
-        public PostgreSQLContext(string schemaName = "dbo") 
+        public MsSqlContext()
         {
-            _schemaName = schemaName;
+
         }
-        public PostgreSQLContext(DbContextOptions<PostgreSQLContext> options) : base(options)
+        public MsSqlContext(DbContextOptions<MsSqlContext> options) : base(options)
         {
 
         }
@@ -27,13 +27,12 @@ namespace Import
         public DbSet<Log> Log { get; set; }
         public DbSet<ApiResult> ApiResult { get; set; }
         public DbSet<IdoctorDctr> IdoctorDctr { get; set; }
+        public DbSet<Lilly_TC_Data_WechatPushImmediately> Lilly_TC_Data_WechatPushImmediately { get; set; }
         public DbSet<BGDataRaw> BGDataRaw { get; set; }
         public DbSet<BGDataRaw_Archive> BGDataRaw_Archive { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasDefaultSchema(_schemaName);
-            modelBuilder.UseIdentityColumns();
             //modelBuilder.Entity<Lilly_DXY_Data_Cards>(entity =>
             //{
             //    entity.ToTable("Lilly_DXY_Data_Cards");
@@ -43,7 +42,8 @@ namespace Import
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseNpgsql(ConfigurationManager.ConnectionStrings[ConfigurationManager.AppSettings["dbName"]].ConnectionString);
+            options.UseSqlServer(ConfigurationManager.ConnectionStrings[ConfigurationManager.AppSettings["dbName"]].ConnectionString);
         }
+
     }
 }

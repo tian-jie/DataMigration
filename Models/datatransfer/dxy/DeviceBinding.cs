@@ -1,22 +1,25 @@
 ﻿using Infrastructure.Core;
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Innocellence.DXYDataTransfer.Models
 {
+    [Table("lilly_dxy_data_devicebinding")]
     public class Lilly_DXY_Data_DeviceBinding : DxyEntityBase<int>
     {
-        public override int Id { get; set; }
-        public override int Rid { get; set; }
+        [Column("pid")]
         public virtual int? Pid { get; set; }
+        [Column("imei")]
         public virtual string Imei { get; set; }
+        [Column("unbinding_reason")]
         public virtual string Unbinding_Reason { get; set; }
+        [Column("binding_time")]
         public virtual int? Binding_Time { get; set; }
+        [Column("unbinding_time")]
         public virtual int? Unbinding_Time { get; set; }
-        public override DateTime CreatedUtc { get; set; }
+        [Column("deleted")]
         public virtual string Deleted { get; set; }
-        // 2018-03-15 Add Start ------>
+        [Column("updated")]
         public virtual int? Updated { get; set; }
-        public override DateTime UpdatedUtc { get; set; }
-        // 2018-03-15 Add End   ------<
     }
 }

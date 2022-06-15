@@ -1,18 +1,21 @@
 ﻿using Infrastructure.Core;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InnoCellence.Lccp.Data.Models
 {
+    [Table("bgsummaryresult")]
     public class BgSummaryResult : EntityBase<int>
     {
-        public override int Id { get; set; }
+        [Column("date")]
         public virtual string Date { get; set; }
+        [Column("createtime")]
         public virtual DateTime? CreateTime { get; set; }
+        [Column("key")]
         public virtual string Key { get; set; }
+        [Column("type")]
         public virtual string Type { get; set; }
+        [Column("result")]
         public virtual string Result { get; set; }
         
     }

@@ -1,25 +1,23 @@
 ﻿using Infrastructure.Core;
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Innocellence.DXYDataTransfer.Models
 {
+    [Table("lilly_dxy_data_aepcmissing")]
     public class Lilly_DXY_Data_AEPCMissing : DxyEntityBase<int>
     {
-        public override int Id { get; set; }
-        public override int Rid { get; set; }
+        [Column("date")]
         public virtual string Date { get; set; }
+        [Column("if_missing")]
         public virtual int? If_Missing { get; set; }
-        public override DateTime CreatedUtc { get; set; }
-        // 2017-10-13 Add Start ------>
+        [Column("deleted")]
         public virtual string Deleted { get; set; }
-        // 2017-10-13 Add End   ------<
-        // 2018-03-14 Add Start ------>
+        [Column("updated")]
         public virtual int? Updated { get; set; }
-        public override DateTime UpdatedUtc { get; set; }
-        // 2018-03-14 Add End   ------<
-        // 2018-11-29 Add Start ------>
+        [Column("signid")]
         public virtual int? SignId { get; set; }
+        [Column("created")]
         public virtual int? Created { get; set; }
-        // 2018-11-29 Add End   ------<
     }
 }

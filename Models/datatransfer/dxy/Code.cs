@@ -1,6 +1,7 @@
 ﻿using Infrastructure.Core;
 using System;
 
+// 不迁移
 namespace Innocellence.DXYDataTransfer.Models
 {
     public class Lilly_DXY_Data_Code : DxyEntityBase<int>

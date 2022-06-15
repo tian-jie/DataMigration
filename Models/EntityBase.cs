@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Infrastructure.Core
 {
@@ -24,6 +25,7 @@ namespace Infrastructure.Core
         /// <summary>
         /// 
         /// </summary>
+        [Column("id")]
         public virtual TKey Id { get; set; }
 
         /// <summary>

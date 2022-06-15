@@ -1,18 +1,21 @@
 ﻿using Infrastructure.Core;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InnoCellence.Lccp.Data.Models
 {
+    [Table("cdscasehistory")]
     public class CDSCaseHistory : EntityBase<int>
     {
-        public override int Id { get; set; }
+        [Column("caseid")]
         public virtual string CaseID { get; set; }
-        public virtual string CaseType { get; set; }        
+        [Column("casetype")]
+        public virtual string CaseType { get; set; }
+        [Column("hcpids")]
         public virtual string HcpIds { get; set; }
+        [Column("message")]
         public virtual string Message { get; set; }
+        [Column("createtime")]
         public virtual DateTime? CreateTime { get; set; }        
     }
 }

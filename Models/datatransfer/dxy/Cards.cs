@@ -1,35 +1,39 @@
 ﻿using Infrastructure.Core;
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Innocellence.DXYDataTransfer.Models
 {
+    [Table("lilly_dxy_data_cards")]
     public class Lilly_DXY_Data_Cards : DxyEntityBase<int>
     {
-        public override int Id { get; set; }
-        public override int Rid { get; set; }
+        [Column("pid")]
         public virtual int? Pid { get; set; }
+        [Column("status")]
         public virtual int Status { get; set; }
+        [Column("created")]
         public virtual int Created { get; set; }
+        [Column("enrollment_code")]
         public virtual string Enrollment_Code { get; set; }
+        [Column("invitation_code")]
         public virtual string Invitation_Code { get; set; }
+        [Column("hcpid")]
         public virtual string HcpId { get; set; }
-        public override DateTime CreatedUtc { get; set; }
-        // 2017-09-05 Add Start ------>
+        [Column("hcp_binding_time")]
         public virtual int? Hcp_binding_time { get; set; }
+        [Column("patient_binding_time")]
         public virtual int? Patient_binding_time { get; set; }
-        // 2017-09-05 Add End   ------<
-        // 2017-10-13 Add Start ------>
+        [Column("deleted")]
         public virtual int Deleted { get; set; }
-        // 2017-10-13 Add End   ------<
-        // 2018-03-15 Add Start ------>
+        [Column("updated")]
         public virtual int Updated { get; set; }
-        public override DateTime UpdatedUtc { get; set; }
-        // 2018-03-15 Add End   ------<
-        // 2018-11-29 Add Start ------>
+        [Column("batch")]
         public virtual int Batch { get; set; }
+        [Column("type")]
         public virtual int Type { get; set; }
-        // 2018-11-29 Add End   ------<
+        [Column("patient_status")]
         public virtual int Patient_status { get; set; }
+        [Column("is_latest")]
         public virtual int Is_latest { get; set; }
     }
 }

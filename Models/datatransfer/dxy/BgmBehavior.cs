@@ -1,31 +1,31 @@
 ﻿using Infrastructure.Core;
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Innocellence.DXYDataTransfer.Models
 {
+    [Table("lilly_dxy_data_bgmbehavior")]
     public class Lilly_DXY_Data_BgmBehavior : DxyEntityBase<int>
     {
-        public override int Id { get; set; }
-        public override int Rid { get; set; }
-        // 2018-04-08 Add Start ------>
+        [Column("req_id")]
         public virtual Int64 Req_Id { get; set; }
-        // 2018-04-08 Add End   ------<
+        [Column("imei")]
         public virtual string Imei { get; set; }
+        [Column("cmd")]
         public virtual string  Cmd { get; set; }
+        [Column("value")]
         public virtual string Value { get; set; }
+        [Column("version_name")]
         public virtual string Version_Name { get; set; }
+        [Column("version_code")]
         public virtual string Version_Code { get; set; }
+        [Column("time")]
         public virtual string Time { get; set; }
-        public override DateTime CreatedUtc { get; set; }
-        // 2017-10-13 Add Start ------>
+        [Column("deleted")]
         public virtual string Deleted { get; set; }
-        // 2017-10-13 Add End   ------<
-        // 2018-03-15 Add Start ------>
+        [Column("updated")]
         public virtual int? Updated { get; set; }
-        public override DateTime UpdatedUtc { get; set; }
-        // 2018-03-15 Add End   ------<
-        // 2018-05-08 Add Start ------>
+        [Column("created")]
         public virtual int? Created { get; set; }
-        // 2018-05-08 Add End   ------<
     }
 }

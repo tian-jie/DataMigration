@@ -1,24 +1,24 @@
 ﻿using Infrastructure.Core;
-using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Innocellence.DXYDataTransfer.Models
 {
+    [Table("lilly_dxy_data_event")]
     public class Lilly_DXY_Data_Event : DxyEntityBase<int>
     {
-        public override int Id { get; set; }
-        public override int Rid { get; set; }
+        [Column("call_reason")]
         public virtual string Call_Reason { get; set; }
+        [Column("title")]
         public virtual string Title { get; set; }
-        public override DateTime CreatedUtc { get; set; }
+        [Column("deleted")]
         public virtual string Deleted { get; set; }
-        // 2018-03-15 Add Start ------>
+        [Column("updated")]
         public virtual int? Updated { get; set; }
-        public override DateTime UpdatedUtc { get; set; }
-        // 2018-03-15 Add End   ------<
-        // 2018-11-29 Add Start ------>
+        [Column("contact_type")]
         public virtual int? Contact_type { get; set; }
+        [Column("aepc_id")]
         public virtual int? Aepc_id { get; set; }
+        [Column("created")]
         public virtual int? Created { get; set; }
-        // 2018-11-29 Add End   ------<
     }
 }

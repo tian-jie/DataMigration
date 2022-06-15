@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
+// 不迁移
 namespace InnoCellence.Lccp.Data.Models
 {
     [Table("apiresult")]
